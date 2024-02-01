@@ -5,19 +5,15 @@ import { useState } from "react";
 
 function App() {
   const [investment, setInvestment] = useState({
-    initialInvestment: null,
-    annualInvestment: null,
-    expectedReturn: null,
-    duration: null,
+    initialInvestment: 15000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
   });
   return (
     <>
       <Header />
       <UserInputs setInvestment={setInvestment} investment={investment} />
-      <p>{investment.initialInvestment}</p>
-      <p>{investment.annualInvestment}</p>
-      <p>{investment.expectedReturn}</p>
-      <p>{investment.duration}</p>
       <Results investment={investment} />
     </>
   );
