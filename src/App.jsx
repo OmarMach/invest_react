@@ -10,10 +10,16 @@ function App() {
     expectedReturn: 6,
     duration: 10,
   });
+  function handleChange(value, identifier) {
+    setInvestment((prev) => ({
+      ...prev,
+      [identifier]: value,
+    }));
+  }
   return (
     <>
       <Header />
-      <UserInputs setInvestment={setInvestment} investment={investment} />
+      <UserInputs onChange={handleChange} investment={investment} />
       {investment.duration > 1 ? <Results investment={investment} /> : <p className="center"> The duration needs to be Greated than 1 year.</p>}
     </>
   );

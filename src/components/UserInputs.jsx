@@ -1,66 +1,16 @@
 import UserInput from "./UserInput";
 
-export default function UserInputs({ setInvestment, investment }) {
-  function handleInitialInvestment(event) {
-    setInvestment((prev) => ({
-      ...prev,
-      initialInvestment: event.target.value,
-    }));
-  }
-  function handleAnnualInvestment(event) {
-    setInvestment((prev) => ({
-      ...prev,
-      annualInvestment: event.target.value,
-    }));
-  }
-  function handleExpectedReturn(event) {
-    setInvestment((prev) => ({
-      ...prev,
-      expectedReturn: event.target.value,
-    }));
-  }
-  function handleDuration(event) {
-    setInvestment((prev) => ({
-      ...prev,
-      duration: event.target.value,
-    }));
-  }
-
+export default function UserInputs({ onChange, investment }) {
   return (
     <div id="user-input">
       <div className="input-group">
-        <UserInput
-          label={"Initial investment"}
-          onChange={(event) => {
-            handleInitialInvestment(event);
-          }}
-          value={investment.initialInvestment}
-        />
-        <UserInput
-          label={"Annual investment"}
-          onChange={(event) => {
-            handleAnnualInvestment(event);
-          }}
-          value={investment.annualInvestment}
-        />
+        <UserInput label={"Initial investment"} onChange={(event) => onChange(event.target.value, "initialInvestment")} value={investment.initialInvestment} />
+        <UserInput label={"Annual investment"} onChange={(event) => onChange(event.target.value, "annualInvestment")} value={investment.annualInvestment} />
       </div>
       <br />
       <div className="input-group">
-        <UserInput
-          label={"Expected return"}
-          onChange={(event) => {
-            handleExpectedReturn(event);
-          }}
-          value={investment.expectedReturn}
-        />
-        <UserInput
-          label={"Duration"}
-          onChange={(event) => {
-            handleDuration(event);
-          }}
-          value={investment.duration}
-          min={2}
-        />
+        <UserInput label={"Expected return"} onChange={(event) => onChange(event.target.value, "expectedReturn")} value={investment.expectedReturn} />
+        <UserInput label={"Duration"} onChange={(event) => onChange(event.target.value, "duration")} value={investment.duration} min={2} />
       </div>
     </div>
   );
