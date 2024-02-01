@@ -13,7 +13,7 @@ function App() {
   function handleChange(value, identifier) {
     setInvestment((prev) => ({
       ...prev,
-      [identifier]: value,
+      [identifier]: +value,
     }));
   }
   return (
