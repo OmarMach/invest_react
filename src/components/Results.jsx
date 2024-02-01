@@ -1,4 +1,4 @@
-export default function Results() {
+export default function Results({ investment }) {
   return (
     <table id="result">
       <thead>
