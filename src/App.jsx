@@ -14,7 +14,7 @@ function App() {
     <>
       <Header />
       <UserInputs setInvestment={setInvestment} investment={investment} />
-      <Results investment={investment} />
+      {investment.duration > 1 ? <Results investment={investment} /> : <p className="center"> The duration needs to be Greated than 1 year.</p>}
     </>
   );
 }

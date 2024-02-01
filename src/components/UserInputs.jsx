@@ -59,6 +59,7 @@ export default function UserInputs({ setInvestment, investment }) {
             handleDuration(event);
           }}
           value={investment.duration}
+          min={2}
         />
       </div>
     </div>
